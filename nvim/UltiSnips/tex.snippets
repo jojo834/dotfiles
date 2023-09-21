@@ -1,5 +1,23 @@
+global !p
+def math():
+    return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+
+def comment(): 
+    return vim.eval('vimtex#syntax#in_comment()') == '1'
+
+def env(name):
+    [x,y] = vim.eval("vimtex#env#is_inside('" + name + "')") 
+    return x != '0' and x != '0'
+
+endglobal
+
 snippet today "Date"
 `date +%F`
+endsnippet
+
+context "math()"
+snippet ssss "subscript superscript" iA
+_{$1}^{$2} $0
 endsnippet
 
 snippet box "Box"
@@ -27,68 +45,234 @@ endsnippet
 snippet dm "Math" wA
 \[
 $1
-.\] $0
+\] $0
 endsnippet
 
-snippet mk "Math" wA
-$${1}$`!p
-if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
-    snip.rv = ' '
-else:
-    snip.rv = ''
-`$2
-endsnippet
-
+context "math()"
 snippet '([A-Za-z])(\d)' "auto subscript" wrA
 `!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
 endsnippet
 
+context "math()"
 snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
 `!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
 endsnippet
 
+context "math()"
 snippet sr "^2" iA
 ^2
 endsnippet
 
+context "math()"
 snippet cb "^3" iA
 ^3
 endsnippet
 
+context "math()"
 snippet compl "complement" iA
 ^{c}
 endsnippet
 
+context "math()"
 snippet td "superscript" iA
 ^{$1}$0
 endsnippet
 
+context "math()"
 snippet // "Fraction" iA
 \\frac{$1}{$2}$0
 endsnippet
 
+context "math()"
 priority 10
 snippet "bar" "bar" riA
 \overline{$1}$0
 endsnippet
 
+context "math()"
 priority 100
 snippet "([a-zA-Z])bar" "bar" riA
 \overline{`!p snip.rv=match.group(1)`}
 endsnippet
 
+context "math()"
 priority 10
 snippet "hat" "hat" riA
 \hat{$1}$0
 endsnippet
 
+context "math()"
 priority 100
 snippet "([a-zA-Z])hat" "hat" riA
 \hat{`!p snip.rv=match.group(1)`}
 endsnippet
 
+context "math()"
 snippet "(\\?\w+)(,\.|\.,)" "Vector postfix" riA
 \vec{`!p snip.rv=match.group(1)`}
 endsnippet
 
+context "math()"
+snippet sum "Sum" A
+\sum_{$1}^{$2} $0
+endsnippet
 
+context "math()"
+snippet int "Integral" A
+\int_{$1}^{$2} $0
+endsnippet
+
+context "math()"
+snippet prod "product" A
+\prod_{$1}^{$2} $0
+endsnippet
+
+context "math()"
+snippet sin "sinus" A
+\sin\pa{$1} $0
+endsnippet
+
+context "math()"
+snippet cos "cosinus" A
+\cos\pa{$1} $0
+endsnippet
+
+context "math()"
+snippet tan "tan" A
+\tan\pa{$1} $0
+endsnippet
+
+context "math()"
+snippet arcsin "arcsin" A
+\arcsin\pa{$1} $0
+endsnippet
+
+context "math()"
+snippet arccos "arccos" A
+\arccos\pa{$1} $0
+endsnippet
+
+context "math()"
+snippet arctan "arctan" A
+\arctan\pa{$1} $0
+endsnippet
+
+context "math()"
+snippet exp "exponential" A
+\exp\pa{$1} $0
+endsnippet
+
+context "math()"
+snippet mat "Matrix" A
+\mat{$1} $0
+endsnippet
+
+context "math()"
+snippet pmat "Parenthese Matrix" A
+\pmat{$1} $0
+endsnippet
+
+context "math()"
+snippet bmat "Bracket Matrix" A
+\bmat{$1} $0
+endsnippet
+
+snippet textbf "Bold text" A
+\textbf{$1} $0
+endsnippet
+
+snippet textit "Italic text" A
+\textit{$1} $0
+endsnippet
+
+snippet textul "Underlined text" A
+\underline{$1} $0
+endsnippet
+
+context "math()"
+snippet !> "maps to" A
+\mapsto $0
+endsnippet
+
+context "math()"
+snippet -> "to" A
+\to $0
+endsnippet
+
+context "math()"
+snippet fun "Function" A
+f: $1 \to $2 : $3 \mapsto $4 $0
+endsnippet
+
+context "math()"
+snippet () "Parentheses" A
+\pa{$1} $0
+endsnippet
+
+context "math()"
+snippet --> "Right arrow" A
+\rightarrow $0
+endsnippet
+
+context "math()"
+snippet <-> "Leftright arrow" A
+\leftrightarrow $0
+endsnippet
+
+context "math()"
+snippet => "Double right arrow" A
+\Rightarrow $0
+endsnippet
+
+context "math()"
+snippet <=> "Double leftright arrow" A
+\Leftrightarrow $0
+endsnippet
+
+context "math()"
+snippet e= "Equivalent (3 bar equal)" A
+\equiv $0
+endsnippet
+
+context "math()"
+snippet eps "epsilon" A
+\epsilon $0
+endsnippet
+
+context "math()"
+snippet eps "epsilon" A
+\epsilon $0
+endsnippet
+
+context "math()"
+snippet del "delta" A
+\delta $0
+endsnippet
+
+context "math()"
+snippet Eps "Epsilon" A
+\Epsilon $0
+endsnippet
+
+context "math()"
+snippet Del "Delta" A
+\Delta $0
+endsnippet
+
+context "math()"
+snippet lnot "Logical Not" A
+\lnot $0
+endsnippet
+
+context "math()"
+snippet land "Logical And" A
+\land $0
+endsnippet
+
+context "math()"
+snippet lor "Logical Or" A
+\lor $0
+endsnippet
+
+snippet table "Table"
+endsnippet

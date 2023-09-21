@@ -6,8 +6,8 @@
   <property name="pressureMultiplier" value="1.00000000"/>
   <property name="zoomGesturesEnabled" value="true"/>
   <property name="selectedToolbar" value="Portrait"/>
-  <property name="lastSavePath" value="/home/jordan/Documents/epfl/exercices"/>
-  <property name="lastOpenPath" value=""/>
+  <property name="lastSavePath" value="/home/jordan/Documents/epfl/notes/slides"/>
+  <property name="lastOpenPath" value="/home/jordan/Documents/epfl/notes/slides"/>
   <property name="lastImagePath" value=""/>
   <property name="edgePanSpeed" value="20.00000000"/>
   <property name="edgePanMaxMult" value="5.00000000"/>
@@ -26,12 +26,12 @@
   <property name="numColumns" value="1"/>
   <property name="numRows" value="1"/>
   <property name="viewFixedRows" value="false"/>
-  <property name="showPairedPages" value="true"/>
+  <property name="showPairedPages" value="false"/>
   <property name="layoutVertical" value="false"/>
   <property name="layoutRightToLeft" value="false"/>
   <property name="layoutBottomToTop" value="false"/>
   <property name="numPairsOffset" value="1"/>
-  <property name="presentationMode" value="true"/>
+  <property name="presentationMode" value="false"/>
   <!--Which gui elements are hidden if you are in Fullscreen mode, separated by a colon (,)-->
   <property name="fullscreenHideElements" value="mainMenubar"/>
   <!--Which gui elements are hidden if you are in Presentation mode, separated by a colon (,)-->
@@ -204,7 +204,7 @@
       <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="ff8000"/>
+      <attribute name="color" type="hex" value="000000"/>
       <attribute name="drawingType" type="string" value="default"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="128"/>
